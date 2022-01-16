@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DeDuplicatingEntity",
+        "repositoryURL": "https://github.com/vichudson1/DeDuplicatingEntity.git",
+        "state": {
+          "branch": "main",
+          "revision": "ae582eb844b216c3d0e1bb0f345039b6751922f7",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
