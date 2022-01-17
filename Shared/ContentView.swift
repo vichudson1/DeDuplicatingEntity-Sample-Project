@@ -10,45 +10,75 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
-
+    
+    var buttonText:String  {
+        return notebooks.count > 0 ? "Clone" : "Seed"
+    }
+    
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \NoteBook.name, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
-
+    private var notebooks: FetchedResults<NoteBook>
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(notebooks) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        NoteBookView(notebook: item)
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(item.name!)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button {
+                        duplicate()
+                    } label: {
+                        Image(systemName: "rectangle.stack.badge.plus")
+                        Text(buttonText)
+                    }
+                    Button {
+                        deDuplicateNotebooks()
+                    } label: {
+                        Image(systemName: "square.stack.3d.up.slash")
+                        Text("Deduplicate Notebooks")
                     }
                 }
             }
+            .listStyle(.plain)
+            .padding(.horizontal)
+            .navigationTitle("NoteBooks")
             Text("Select an item")
+            
         }
     }
-
+    
+    private func duplicate() {
+        NoteBook.makeNoteBooks(in: viewContext)
+    }
+    
+    private func deDuplicateNotebooks() {
+        // in a real app do this in a privateQueueConcurrencyType  context
+        viewContext.perform {
+            NoteBook.deduplicateBy(property: "name", in: viewContext)
+            do {
+                try viewContext.save()
+            } catch {
+                print("Error saving context: \(error)")
+            }
+        }
+        
+    }
+    
+    
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
+            let newItem = NoteBook(context: viewContext)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -59,11 +89,11 @@ struct ContentView: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            offsets.map { notebooks[$0] }.forEach(viewContext.delete)
+            
             do {
                 try viewContext.save()
             } catch {

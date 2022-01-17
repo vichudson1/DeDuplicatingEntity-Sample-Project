@@ -7,10 +7,11 @@
 
 import Foundation
 import CoreData
+import DeDuplicatingEntity
 
-
-extension Note {
-    // Add your methods here.
-    
+extension Note: DeDuplicatingEntity {
+    public func moveRelationships(to destination: Note) {
+        // nothing to do here
+    }
 }
 

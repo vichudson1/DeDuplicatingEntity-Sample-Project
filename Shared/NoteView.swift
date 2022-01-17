@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct NoteView: View {
+    @ObservedObject var note: Note
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            Text(note.content ?? "")
+                .fixedSize(horizontal: false, vertical: true)
+                .navigationTitle(note.title ?? "Note Detail")
+            .padding(.horizontal)
+        }
     }
 }
 
-struct NoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        NoteView()
-    }
-}
