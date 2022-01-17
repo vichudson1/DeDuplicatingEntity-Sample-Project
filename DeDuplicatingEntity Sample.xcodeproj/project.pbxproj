@@ -18,6 +18,15 @@
 		57C59F812794B26F00647D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57C59F6B2794B26F00647D1C /* Assets.xcassets */; };
 		57C59F822794B26F00647D1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57C59F6B2794B26F00647D1C /* Assets.xcassets */; };
 		57C59F8D2794BDDA00647D1C /* DeDuplicatingEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 57C59F8C2794BDDA00647D1C /* DeDuplicatingEntity */; };
+		57C59F942794BFDE00647D1C /* NoteBook+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F932794BFDE00647D1C /* NoteBook+Extension.swift */; };
+		57C59F952794BFDE00647D1C /* NoteBook+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F932794BFDE00647D1C /* NoteBook+Extension.swift */; };
+		57C59F972794BFF400647D1C /* Note+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F962794BFF400647D1C /* Note+Extension.swift */; };
+		57C59F982794BFF400647D1C /* Note+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F962794BFF400647D1C /* Note+Extension.swift */; };
+		57C59F9B2794C2FF00647D1C /* DeDuplicatingEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 57C59F9A2794C2FF00647D1C /* DeDuplicatingEntity */; };
+		57C59F9D2794DAA900647D1C /* NoteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F9C2794DAA900647D1C /* NoteBookView.swift */; };
+		57C59F9E2794DAA900647D1C /* NoteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F9C2794DAA900647D1C /* NoteBookView.swift */; };
+		57C59FA02794DD5300647D1C /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F9F2794DD5300647D1C /* NoteView.swift */; };
+		57C59FA12794DD5300647D1C /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C59F9F2794DD5300647D1C /* NoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +38,10 @@
 		57C59F702794B26F00647D1C /* DeDuplicatingEntity Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeDuplicatingEntity Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C59F762794B26F00647D1C /* DeDuplicatingEntity Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeDuplicatingEntity Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57C59F782794B26F00647D1C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		57C59F932794BFDE00647D1C /* NoteBook+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NoteBook+Extension.swift"; sourceTree = "<group>"; };
+		57C59F962794BFF400647D1C /* Note+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Extension.swift"; sourceTree = "<group>"; };
+		57C59F9C2794DAA900647D1C /* NoteBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteBookView.swift; sourceTree = "<group>"; };
+		57C59F9F2794DD5300647D1C /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C59F9B2794C2FF00647D1C /* DeDuplicatingEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +70,7 @@
 				57C59F652794B26E00647D1C /* Shared */,
 				57C59F772794B26F00647D1C /* macOS */,
 				57C59F712794B26F00647D1C /* Products */,
+				57C59F992794C2FE00647D1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,9 +79,10 @@
 			children = (
 				57C59F682794B26E00647D1C /* DeDuplicatingEntity_SampleApp.swift */,
 				57C59F692794B26E00647D1C /* ContentView.swift */,
-				57C59F6A2794B26E00647D1C /* Persistence.swift */,
+				57C59F9C2794DAA900647D1C /* NoteBookView.swift */,
+				57C59F9F2794DD5300647D1C /* NoteView.swift */,
+				57C59F8E2794BF8C00647D1C /* Data Store */,
 				57C59F6B2794B26F00647D1C /* Assets.xcassets */,
-				57C59F662794B26E00647D1C /* DeDuplicatingEntity_Sample.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -86,6 +102,32 @@
 				57C59F782794B26F00647D1C /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		57C59F8E2794BF8C00647D1C /* Data Store */ = {
+			isa = PBXGroup;
+			children = (
+				57C59F922794BFDE00647D1C /* Types */,
+				57C59F6A2794B26E00647D1C /* Persistence.swift */,
+				57C59F662794B26E00647D1C /* DeDuplicatingEntity_Sample.xcdatamodeld */,
+			);
+			path = "Data Store";
+			sourceTree = "<group>";
+		};
+		57C59F922794BFDE00647D1C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				57C59F932794BFDE00647D1C /* NoteBook+Extension.swift */,
+				57C59F962794BFF400647D1C /* Note+Extension.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		57C59F992794C2FE00647D1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +166,9 @@
 			dependencies = (
 			);
 			name = "DeDuplicatingEntity Sample (macOS)";
+			packageProductDependencies = (
+				57C59F9A2794C2FF00647D1C /* DeDuplicatingEntity */,
+			);
 			productName = "DeDuplicatingEntity Sample (macOS)";
 			productReference = 57C59F762794B26F00647D1C /* DeDuplicatingEntity Sample.app */;
 			productType = "com.apple.product-type.application";
@@ -192,10 +237,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C59F942794BFDE00647D1C /* NoteBook+Extension.swift in Sources */,
 				57C59F7B2794B26F00647D1C /* DeDuplicatingEntity_SampleApp.swift in Sources */,
+				57C59FA02794DD5300647D1C /* NoteView.swift in Sources */,
 				57C59F7F2794B26F00647D1C /* Persistence.swift in Sources */,
 				57C59F792794B26F00647D1C /* DeDuplicatingEntity_Sample.xcdatamodeld in Sources */,
 				57C59F7D2794B26F00647D1C /* ContentView.swift in Sources */,
+				57C59F972794BFF400647D1C /* Note+Extension.swift in Sources */,
+				57C59F9D2794DAA900647D1C /* NoteBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,10 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57C59F952794BFDE00647D1C /* NoteBook+Extension.swift in Sources */,
 				57C59F7C2794B26F00647D1C /* DeDuplicatingEntity_SampleApp.swift in Sources */,
+				57C59FA12794DD5300647D1C /* NoteView.swift in Sources */,
 				57C59F802794B26F00647D1C /* Persistence.swift in Sources */,
 				57C59F7A2794B26F00647D1C /* DeDuplicatingEntity_Sample.xcdatamodeld in Sources */,
 				57C59F7E2794B26F00647D1C /* ContentView.swift in Sources */,
+				57C59F982794BFF400647D1C /* Note+Extension.swift in Sources */,
+				57C59F9E2794DAA900647D1C /* NoteBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +539,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		57C59F8C2794BDDA00647D1C /* DeDuplicatingEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57C59F8B2794BDDA00647D1C /* XCRemoteSwiftPackageReference "DeDuplicatingEntity" */;
+			productName = DeDuplicatingEntity;
+		};
+		57C59F9A2794C2FF00647D1C /* DeDuplicatingEntity */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 57C59F8B2794BDDA00647D1C /* XCRemoteSwiftPackageReference "DeDuplicatingEntity" */;
 			productName = DeDuplicatingEntity;
